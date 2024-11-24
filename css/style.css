@@ -1,0 +1,230 @@
+html{
+    font-size: 62.5%;
+}
+
+/*全体*/
+body{
+    background-color:#3b7960;
+    font-size: 1.6rem;
+  	color: #fff;
+    line-height: 1.5; 
+}
+
+/*アコーディオン外のテキスト*/
+.txt{ 
+    font-size: 1.6rem;
+    margin:10px 20px;
+}
+
+/*罫線*/
+hr{
+    border: none;
+    border-top: 3px dashed #fff;
+    width:95%;
+}
+
+/*アコーディオン1セット固まり*/
+section{
+    margin:20px 10px;
+}
+
+/*アコーディオンボタン並び*/
+.accbox label{
+    display: block;
+    cursor :pointer;
+    transition: all 0.5s;
+}
+
+/*チェックは隠す*/
+.accbox input {
+    display: none;
+}
+
+/*中身を非表示にしておく&チェックで表示*/
+.accbox .accshow {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+input:checked + .box .accshow {
+    height: auto;
+    opacity: 1;
+}
+input:checked + .box .accshow {
+  display: block;
+}
+input:checked + .box .box-close{
+  display: block;
+}
+
+/*見出し、アコーディオンボタン共通*/
+h1,section .pad_ie{
+    font-weight: bold;
+    line-height: 2;
+    letter-spacing: 5px;
+    margin:20px 10px;
+    padding: 5px;
+    text-align: center;
+    width:95%;
+    max-width: 1080px;
+    border-radius:15px;
+}
+
+/*見出し*/
+h1{
+    font-size: 2rem;
+    border:3px solid #fff;
+}
+
+/*アコーディオンボタン*/
+section .pad_ie{
+    font-size: 1.8rem;
+    color: #3b7960;
+    background-color:#fff;
+}
+
+/*変化後の透過度*/
+input:checked + section.box .pad_ie{
+    opacity:0.5;
+}
+
+/*ラベル横のアクションアイコン*/
+.pad_ie::before{
+    content: "▽";
+    position: absolute;
+    left: calc(5% );
+    transition: transform .15s ease-in-out;
+}
+input:checked + section.box .pad_ie:before{
+  display:none;
+  transform: rotate(90deg);
+	transition-duration: 0.3s;
+}
+input:checked + section.box .pad_ie:after{
+  content: "▲";
+	position: absolute;
+	left: calc(5%);
+	transition: transform .15s ease-in-out;
+}
+
+/*ラベルホバー時*/
+.accbox label:hover,
+a:hover{
+    opacity: 0.7;
+}
+
+.accshow{
+    font-size: 1.6rem;
+}
+.accshow ul{
+    margin: 10px;
+    width: 90%;
+    padding-left: 15px; 
+}
+.accshow li{
+    margin:5px;
+}
+
+a{
+    text-decoration:none;
+    transition: all 0.5s;
+}
+
+/*閉じるボタン、白リンク共通*/
+.box-close,
+.link,
+.frame{
+    color:#3b7960;
+    letter-spacing: 5px;
+    padding:5px 20px;
+    text-align:center;
+    background-color:#fff;
+    border-radius:10px;
+}
+
+/*閉じるボタン*/
+.box-close{
+    margin:20px 50px;
+    width:50%;
+    max-width: 500px;
+}
+
+/*文字リンク*/
+.link{
+    margin:1px 5px;
+}
+
+/*枠線のみ*/
+.border{
+    color: #fff;
+    letter-spacing: 5px;   
+    padding: 5px;
+    text-align: center;
+    background-color: #3b7960;
+    border:3px solid #fff;
+}
+
+/*画像セット文字枠共通*/
+.frame,
+.border{
+    font-size: 1.6rem;
+    border-radius:0 0 10px 10px;
+    border-top:none;
+}
+
+/*画像リンクと文字ホバー時*/
+.imglink:hover,
+.frame:hover{
+    opacity: 0.7;
+    transition: all 0.5s;
+}
+
+/*画像&文字リンク固まり*/
+figure{
+    margin: 5px;
+    display: flex;
+    flex-flow: column;
+}
+figure img{
+    border-radius: 10px 10px 0 0;
+}
+
+/*画面サイズ違い*/
+@media screen and (max-width: 1080px) {/*1080px以下*/
+.txt,
+.accshow,
+.border,
+.frame{
+    font-size: 3rem;
+}
+h1,
+label.pad_ie{
+    font-size: 4rem;
+}
+table td{
+    display: block;
+    width: 100%;
+}
+figure img{
+    width:100%;
+    height: auto;
+}
+.history{
+    width:100%;
+    max-width: 900px;
+    height: auto;
+}
+}
+
+@media screen and (max-width: 720px) {/*720px以下*/
+.txt,
+.accshow,
+.border,
+.frame,
+h1,
+label.pad_ie{
+    font-size: 2rem;
+}
+}
